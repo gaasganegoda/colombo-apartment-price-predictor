@@ -155,9 +155,8 @@ if st.button("Predict Apartment Price"):
     log_price_pred = model.predict(input_data)[0]
     #st.write("🧩 Debug Info — Model Raw Log Prediction:", round(log_price_pred, 3))
 
-    # Convert log to actual price (apply scaling ×1000)
-    predicted_price = np.expm1(log_price_pred) * 1000  #  FIXED SCALE
-
+    # Convert log to actual price 
+    predicted_price = np.expm1(log_price_pred)  
     # Sanity check
     if predicted_price < 1_000_000:
         st.error("⚠️ The predicted price seems too low. Please check inputs.")
@@ -189,3 +188,4 @@ if st.button("Predict Apartment Price"):
 # ======================================================
 st.markdown("---")
 st.caption("Developed by G.A.A.S Ganegoda | BSc (Hons) Data Science | NSBM Green University | 2025")
+
